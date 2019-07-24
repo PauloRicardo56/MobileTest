@@ -10,14 +10,40 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    struct Cliente {
-        <#fields#>
-    }
-
     override func viewDidLoad() {
+        
         super.viewDidLoad()
     }
-
-
 }
+
+
+//struct Dados {
+//    let id: String
+//    let saldo: String
+//}
+//
+//
+//struct ContaCorrente: Decodable {
+//    let contaCorrente: [Dados]
+//}
+//
+//
+//struct ContaPoupanca: Decodable {
+//    let contaPoupanca: [Dados]
+//}
+//
+//
+//struct Pessoa: Decodable {
+//    let id: Int
+//    let nome: String
+//    let contatos: [Int]
+//}
+//
+//
+//struct Banco: Decodable {
+//    let contaCorrente: [ContaCorrente]
+//    let contaPoupanca: [ContaPoupanca]
+//    let pessoa: [Pessoa]
+//}
+
 
