@@ -26,7 +26,9 @@ class ContasTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         sections.removeAll()
-        if delegate.possuiContaCorrente(pessoa){
+        print(111)
+        print(self.pessoa.nome)
+        if delegate.possuiContaCorrente(pessoa) {
             sections.append("Conta Corrente")
             let contasRecuperadas = delegate.recuperarContaCorrente(pessoa)
             contasCorrente = contasRecuperadas

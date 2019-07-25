@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2375AF5D22EA1A8B009273C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2375AF5C22EA1A8B009273C2 /* ViewController.swift */; };
 		2386212222E8F3C2006B79A5 /* Conta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386212122E8F3C2006B79A5 /* Conta.swift */; };
 		2386214922E94D9C006B79A5 /* Banco.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386214822E94D9C006B79A5 /* Banco.swift */; };
 		2398B37422E8C81200249275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398B37322E8C81200249275 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2375AF5C22EA1A8B009273C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2386212122E8F3C2006B79A5 /* Conta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conta.swift; sourceTree = "<group>"; };
 		2386214822E94D9C006B79A5 /* Banco.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banco.swift; sourceTree = "<group>"; };
 		2398B37022E8C81200249275 /* MobileTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,7 @@
 			children = (
 				2398B37322E8C81200249275 /* AppDelegate.swift */,
 				2398B37722E8C81200249275 /* Main.storyboard */,
+				2375AF5C22EA1A8B009273C2 /* ViewController.swift */,
 				2398B37A22E8C81300249275 /* Assets.xcassets */,
 				2398B37C22E8C81300249275 /* LaunchScreen.storyboard */,
 				2398B37F22E8C81300249275 /* Info.plist */,
@@ -164,6 +167,7 @@
 				E650A3C022E9E82F00E78E81 /* ContasTableViewControllerDelegate.swift in Sources */,
 				E66C119B22E93558005FA908 /* ContasTableViewController.swift in Sources */,
 				2398B37422E8C81200249275 /* AppDelegate.swift in Sources */,
+				2375AF5D22EA1A8B009273C2 /* ViewController.swift in Sources */,
 				2386212222E8F3C2006B79A5 /* Conta.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
