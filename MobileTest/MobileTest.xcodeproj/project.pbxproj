@@ -14,6 +14,7 @@
 		2398B37B22E8C81300249275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2398B37A22E8C81300249275 /* Assets.xcassets */; };
 		2398B37E22E8C81300249275 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2398B37C22E8C81300249275 /* LaunchScreen.storyboard */; };
 		2398B38822E8DCBD00249275 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398B38722E8DCBD00249275 /* TableViewController.swift */; };
+		E650A3C022E9E82F00E78E81 /* ContasTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A3BF22E9E82F00E78E81 /* ContasTableViewControllerDelegate.swift */; };
 		E66C119B22E93558005FA908 /* ContasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66C119A22E93558005FA908 /* ContasTableViewController.swift */; };
 		E66C119D22E938D5005FA908 /* Pessoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66C119C22E938D4005FA908 /* Pessoa.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		2398B37D22E8C81300249275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2398B37F22E8C81300249275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2398B38722E8DCBD00249275 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		E650A3BF22E9E82F00E78E81 /* ContasTableViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContasTableViewControllerDelegate.swift; sourceTree = "<group>"; };
 		E66C119A22E93558005FA908 /* ContasTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContasTableViewController.swift; sourceTree = "<group>"; };
 		E66C119C22E938D4005FA908 /* Pessoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pessoa.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +82,7 @@
 				2398B37F22E8C81300249275 /* Info.plist */,
 				2398B38722E8DCBD00249275 /* TableViewController.swift */,
 				E66C119A22E93558005FA908 /* ContasTableViewController.swift */,
+				E650A3BF22E9E82F00E78E81 /* ContasTableViewControllerDelegate.swift */,
 			);
 			path = MobileTest;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 				E66C119D22E938D5005FA908 /* Pessoa.swift in Sources */,
 				2386214922E94D9C006B79A5 /* Banco.swift in Sources */,
 				2398B38822E8DCBD00249275 /* TableViewController.swift in Sources */,
+				E650A3C022E9E82F00E78E81 /* ContasTableViewControllerDelegate.swift in Sources */,
 				E66C119B22E93558005FA908 /* ContasTableViewController.swift in Sources */,
 				2398B37422E8C81200249275 /* AppDelegate.swift in Sources */,
 				2386212222E8F3C2006B79A5 /* Conta.swift in Sources */,

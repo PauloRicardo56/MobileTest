@@ -8,10 +8,17 @@
 
 import UIKit
 
+
 class ContasTableViewController: UITableViewController {
 
     var pessoa: Pessoa!
-    let sections = ["Contas", "Contatos"]
+    var delegate: ContasTableViewControllerDelegate!
+    var contasCorrente: Array<Conta> = []
+    var contasPoupanca: Array<Conta> = []
+    var contatos: Array<Pessoa> = []
+    var itens: [Array<String>] = []
+    
+    var sections:Array<String> = []
 
     
     override func viewDidLoad() {
@@ -19,6 +26,22 @@ class ContasTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        sections.removeAll()
+        if delegate.possuiContaCorrente(pessoa){
+            sections.append("Conta Corrente")
+            let contasRecuperadas = delegate.recuperarContaCorrente(pessoa)
+            contasCorrente = contasRecuperadas
+        }
+        if delegate.possuiContaPoupanca(pessoa){
+            sections.append("Conta Poupança")
+            let contasRecuperadas = delegate.recuperarContaPoupanca(pessoa)
+            contasPoupanca = contasRecuperadas
+
+        }
+        sections.append("Contatos")
+        contatos = delegate.recuperarContatos(pessoa)
+        
+        
         tableView.reloadData()
     }
     
@@ -42,3 +65,5 @@ class ContasTableViewController: UITableViewController {
         return cell
     }
 }
+
+
