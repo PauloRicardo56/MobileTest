@@ -10,7 +10,6 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-    @IBOutlet var pessoasTableView: UITableView!
     
     var contasCorrente: [Conta] = []
     var contasPoupanca: [Conta] = []

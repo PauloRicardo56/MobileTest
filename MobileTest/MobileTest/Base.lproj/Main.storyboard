@@ -36,9 +36,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Escolha" id="hpc-BG-tjc"/>
-                    <connections>
-                        <outlet property="pessoasTableView" destination="rcd-ef-XtJ" id="OOw-qA-kPa"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H5F-fx-Tek" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
