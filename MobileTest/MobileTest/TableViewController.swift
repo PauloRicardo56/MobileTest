@@ -10,15 +10,19 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
+    @IBOutlet var pessoasTableView: UITableView!
+    
+    var contasCorrente: [Conta] = []
+    var contasPoupanca: [Conta] = []
+    var pessoas: [Pessoa] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var contasCorrente: [Conta] = []
-        var contasPoupanca: [Conta] = []
-        var pessoas: [Pessoa] = []
         
-        print("to aqui")
         guard let url = URL(string: "https://raw.githubusercontent.com/PauloRicardo56/MobileTest/master/API.json") else { return }
+        
+        
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error == nil {
                 guard let dataRecuperada = data else { return }
@@ -35,7 +39,7 @@ class TableViewController: UITableViewController {
                                 if let idContaCorrente = cc["id"] as? Int{
                                     if let saldoContaCorrent = cc["saldo"] as? String{
                                         let conta = Conta(id: idContaCorrente, saldo: saldoContaCorrent)
-                                        contasCorrente.append(conta)
+                                        self.contasCorrente.append(conta)
                                     }
                                 }
                             }
@@ -45,7 +49,7 @@ class TableViewController: UITableViewController {
                                 if let idContaPopupanca = cp["id"] as? Int {
                                     if let saldoContaPopupanca = cp["saldo"] as? String{
                                         let conta = Conta(id: idContaPopupanca, saldo: saldoContaPopupanca)
-                                        contasPoupanca.append(conta)
+                                        self.contasPoupanca.append(conta)
                                     }
                                 }
                             }
@@ -54,38 +58,55 @@ class TableViewController: UITableViewController {
                             for p in pessoasJson {
                                 if let idPessoa = p["id"] as? Int, let nome = p["Nome"] as? String, let contatos = p["Contatos"] as? [Int] {
                                     let pessoa = Pessoa(id: idPessoa, nome: nome, contatos: contatos)
-                                    pessoas.append(pessoa)
+                                    self.pessoas.append(pessoa)
                                 }
                             }
+                        }
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
                         }
                     }
                 } catch let error {
                     print(error)
                 }
-                
-                //                        }
             } else {
                 print("Erro na comunicacao", error.debugDescription)
             }
-            
-            
             }.resume()
-        DispatchQueue.main.async {
-            for i in contasCorrente {
-                print(i.id)
-            }
         
-            for i in contasPoupanca {
-                print(i.id)
-            }
-            for i in pessoas {
-                print(i.nome)
-            }
-        }
         
     }
     
-    @IBAction func button(_ sender: Any) {
-        
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return pessoas.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let pessoa = pessoas[indexPath.row]
+        cell.textLabel?.text = pessoa.nome
+
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "conta"{
+            if let indexPath = tableView.indexPathForSelectedRow{
+                let pessoaSelecionada = self.pessoas[indexPath.row]
+                let viewControllerDestino = segue.destination as! ContasTableViewController
+                viewControllerDestino.pessoa = pessoaSelecionada
+                
+            }
+        }
+    }
+    
+    
 }
