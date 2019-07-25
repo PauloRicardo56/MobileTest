@@ -41,49 +41,7 @@ class TableViewController: UITableViewController {
             }
         }.resume()
     }
-//                do {
-//                    if let objJason = try JSONSerialization.jsonObject(with: dataRecuperada, options: .mutableContainers) as? [String : Any] {
-//                        if let contaCorrente = objJason["ContaCorrente"] as? [[String : Any]] {
-//                            for cc in contaCorrente{
-//                                if let idContaCorrente = cc["id"] as? Int{
-//                                    if let saldoContaCorrent = cc["saldo"] as? String{
-//                                        let conta = Conta(id: idContaCorrente, saldo: saldoContaCorrent)
-//                                        self.contasCorrente.append(conta)
-//                                    }
-//                                }
-//                            }
-//                        }
-//                        if let contaPopupanca = objJason["ContaPoupanca"] as? [[String : Any]] {
-//                            for cp in contaPopupanca {
-//                                if let idContaPopupanca = cp["id"] as? Int {
-//                                    if let saldoContaPopupanca = cp["saldo"] as? String{
-//                                        let conta = Conta(id: idContaPopupanca, saldo: saldoContaPopupanca)
-//                                        self.contasPoupanca.append(conta)
-//                                    }
-//                                }
-//                            }
-//                        }
-//                        if let pessoasJson = objJason["Pessoa"] as? [[String : Any]] {
-//                            for p in pessoasJson {
-//                                if let idPessoa = p["id"] as? Int, let nome = p["Nome"] as? String, let contatos = p["Contatos"] as? [Int] {
-//                                    let pessoa = Pessoa(id: idPessoa, nome: nome, contatos: contatos)
-//                                    self.pessoas.append(pessoa)
-//                                }
-//                            }
-//                        }
-//                        DispatchQueue.main.async {
-//                            self.tableView.reloadData()
-//                        }
-//                    }
-//                } catch let error {
-//                    print(error)
-//                }
-//            } else {
-//                print("Erro na comunicacao", error.debugDescription)
-//            }
-//            }.resume()
-//    }
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -109,8 +67,65 @@ class TableViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow{
                 let pessoaSelecionada = self.pessoas[indexPath.row]
                 let viewControllerDestino = segue.destination as! ContasTableViewController
+                viewControllerDestino.delegate = self
                 viewControllerDestino.pessoa = pessoaSelecionada
             }
         }
+    }
+}
+
+extension TableViewController: ContasTableViewControllerDelegate{
+    func recuperarContatos(_ pessoaSelecionada: Pessoa) -> [Pessoa] {
+        var contatosRecuperados: [Pessoa] = []
+        
+        for pessoa in pessoas{
+            for idContatos in pessoaSelecionada.contatos{
+                if pessoa.id == idContatos {
+                    contatosRecuperados.append(pessoa)
+                }
+            }
+        }
+        
+        return contatosRecuperados
+    }
+    
+    func recuperarContaCorrente(_ pessoaSelecionada: Pessoa) -> [Conta] {
+        var contaRecuperada: Array<Conta> = []
+        for conta in contasCorrente{
+            if conta.id == pessoaSelecionada.id {
+                contaRecuperada.append(conta)
+            }
+        }
+        
+        return contaRecuperada
+    }
+    
+    func recuperarContaPoupanca(_ pessoaSelecionada: Pessoa) -> [Conta] {
+        var contaRecuperada: Array<Conta> = []
+        for conta in contasPoupanca{
+            if conta.id == pessoaSelecionada.id {
+                contaRecuperada.append(conta)
+            }
+        }
+        
+        return contaRecuperada
+    }
+    
+    func possuiContaCorrente(_ pessoaSelecionada: Pessoa) -> Bool {
+        for conta in contasCorrente{
+            if conta.id == pessoaSelecionada.id {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func possuiContaPoupanca(_ pessoaSelecionada: Pessoa) -> Bool {
+        for conta in contasPoupanca{
+            if conta.id == pessoaSelecionada.id {
+                return true
+            }
+        }
+        return false
     }
 }
