@@ -1,5 +1,5 @@
 {
-  "ContaCorrente": [
+  "contaCorrente": [
     {"id": 1,"saldo": "1345.00"},
     {"id": 2,"saldo": "13.99"},
     {"id": 3,"saldo": "134.41"},
@@ -7,19 +7,19 @@
     {"id": 5,"saldo": "550.45"},
     {"id": 6,"saldo": "99.00"}
   ],
-  "ContaPoupanca": [
+  "contaPoupanca": [
     {"id": 1,"saldo": "135.00"},
     {"id": 2,"saldo": "133.99"},
     {"id": 4,"saldo": "40.00"},
     {"id": 5,"saldo": "550.45"},
     {"id": 6,"saldo": "00.00"}
   ],
-  "Pessoa": [
-    {"id": 1, "Nome": "Fabio", "Contatos": [5, 4, 3]},
-    {"id": 2, "Nome": "Paulo", "Contatos": [5, 1, 3]},
-    {"id": 3, "Nome": "Pedro", "Contatos": [6, 4, 1, 2]},
-    {"id": 4, "Nome": "Rangel", "Contatos": [5, 3, 2]},
-    {"id": 5, "Nome": "Lucas", "Contatos": [2, 4, 3, 6]},
-    {"id": 6, "Nome": "Bernardo", "Contatos": [4, 1]}
+  "pessoa": [
+    {"id": 1, "nome": "Fabio", "contatos": [5, 4, 3]},
+    {"id": 2, "nome": "Paulo", "contatos": [5, 1, 3]},
+    {"id": 3, "nome": "Pedro", "contatos": [6, 4, 1, 2]},
+    {"id": 4, "nome": "Rangel", "contatos": [5, 3, 2]},
+    {"id": 5, "nome": "Lucas", "contatos": [2, 4, 3, 6]},
+    {"id": 6, "nome": "Bernardo", "contatos": [4, 1]}
   ]
 }
