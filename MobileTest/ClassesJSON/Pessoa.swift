@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Pessoa {
+class Pessoa: Codable {
     let id: Int
     let nome: String
     let contatos: [Int]
     
-    init(id: Int, nome: String, contatos: [Int]) {
-        self.id = id
-        self.nome = nome
-        self.contatos = contatos
-    }
+//    init(id: Int, nome: String, contatos: [Int]) {
+//        self.id = id
+//        self.nome = nome
+//        self.contatos = contatos
+//    }
 }

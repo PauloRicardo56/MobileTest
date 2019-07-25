@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2386212222E8F3C2006B79A5 /* Conta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386212122E8F3C2006B79A5 /* Conta.swift */; };
+		2386214922E94D9C006B79A5 /* Banco.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386214822E94D9C006B79A5 /* Banco.swift */; };
 		2398B37422E8C81200249275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398B37322E8C81200249275 /* AppDelegate.swift */; };
 		2398B37922E8C81200249275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2398B37722E8C81200249275 /* Main.storyboard */; };
 		2398B37B22E8C81300249275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2398B37A22E8C81300249275 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		2386212122E8F3C2006B79A5 /* Conta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conta.swift; sourceTree = "<group>"; };
+		2386214822E94D9C006B79A5 /* Banco.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banco.swift; sourceTree = "<group>"; };
 		2398B37022E8C81200249275 /* MobileTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2398B37322E8C81200249275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2398B37822E8C81200249275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -41,9 +43,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2386214722E94D6F006B79A5 /* ClassesJSON */ = {
+			isa = PBXGroup;
+			children = (
+				E66C119C22E938D4005FA908 /* Pessoa.swift */,
+				2386212122E8F3C2006B79A5 /* Conta.swift */,
+				2386214822E94D9C006B79A5 /* Banco.swift */,
+			);
+			path = ClassesJSON;
+			sourceTree = "<group>";
+		};
 		2398B36722E8C81200249275 = {
 			isa = PBXGroup;
 			children = (
+				2386214722E94D6F006B79A5 /* ClassesJSON */,
 				2398B37222E8C81200249275 /* MobileTest */,
 				2398B37122E8C81200249275 /* Products */,
 			);
@@ -61,13 +74,11 @@
 			isa = PBXGroup;
 			children = (
 				2398B37322E8C81200249275 /* AppDelegate.swift */,
-				2386212122E8F3C2006B79A5 /* Conta.swift */,
 				2398B38722E8DCBD00249275 /* TableViewController.swift */,
 				2398B37722E8C81200249275 /* Main.storyboard */,
 				2398B37A22E8C81300249275 /* Assets.xcassets */,
 				2398B37C22E8C81300249275 /* LaunchScreen.storyboard */,
 				2398B37F22E8C81300249275 /* Info.plist */,
-				E66C119C22E938D4005FA908 /* Pessoa.swift */,
 				E66C119A22E93558005FA908 /* ContasTableViewController.swift */,
 			);
 			path = MobileTest;
@@ -145,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E66C119D22E938D5005FA908 /* Pessoa.swift in Sources */,
+				2386214922E94D9C006B79A5 /* Banco.swift in Sources */,
 				2398B38822E8DCBD00249275 /* TableViewController.swift in Sources */,
 				E66C119B22E93558005FA908 /* ContasTableViewController.swift in Sources */,
 				2398B37422E8C81200249275 /* AppDelegate.swift in Sources */,

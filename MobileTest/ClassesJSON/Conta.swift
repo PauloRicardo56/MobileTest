@@ -9,13 +9,13 @@
 import Foundation
 
 
-class Conta {
+class Conta: Codable {
     
     let id: Int
     let saldo: String
     
-    init(id: Int, saldo: String) {
-        self.id = id
-        self.saldo = saldo
-    }
+//    init(id: Int, saldo: String) {
+//        self.id = id
+//        self.saldo = saldo
+//    }
 }

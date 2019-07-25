@@ -22,59 +22,67 @@ class TableViewController: UITableViewController {
         guard let url = URL(string: "https://raw.githubusercontent.com/PauloRicardo56/MobileTest/master/API.json") else { return }
         
         
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        _ = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error == nil {
+                
                 guard let dataRecuperada = data else { return }
-                //                        do {
-                //                            print(dataRecuperada)
-                //                            let decoder = try JSONDecoder().decode(ContaCorrente.self, from: dataRecuperada)
-                //                            print(decoder)
-                //                        } catch let error {
-                //                            print(error.localizedDescription)
                 do {
-                    if let objJason = try JSONSerialization.jsonObject(with: dataRecuperada, options: .mutableContainers) as? [String : Any] {
-                        if let contaCorrente = objJason["ContaCorrente"] as? [[String : Any]] {
-                            for cc in contaCorrente{
-                                if let idContaCorrente = cc["id"] as? Int{
-                                    if let saldoContaCorrent = cc["saldo"] as? String{
-                                        let conta = Conta(id: idContaCorrente, saldo: saldoContaCorrent)
-                                        self.contasCorrente.append(conta)
-                                    }
-                                }
-                            }
-                        }
-                        if let contaPopupanca = objJason["ContaPoupanca"] as? [[String : Any]] {
-                            for cp in contaPopupanca {
-                                if let idContaPopupanca = cp["id"] as? Int {
-                                    if let saldoContaPopupanca = cp["saldo"] as? String{
-                                        let conta = Conta(id: idContaPopupanca, saldo: saldoContaPopupanca)
-                                        self.contasPoupanca.append(conta)
-                                    }
-                                }
-                            }
-                        }
-                        if let pessoasJson = objJason["Pessoa"] as? [[String : Any]] {
-                            for p in pessoasJson {
-                                if let idPessoa = p["id"] as? Int, let nome = p["Nome"] as? String, let contatos = p["Contatos"] as? [Int] {
-                                    let pessoa = Pessoa(id: idPessoa, nome: nome, contatos: contatos)
-                                    self.pessoas.append(pessoa)
-                                }
-                            }
-                        }
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
+                    print(dataRecuperada)
+                    let banco = try JSONDecoder().decode(Banco.self, from: dataRecuperada)
+                    self.contasCorrente = banco.contaCorrente
+                    self.contasPoupanca = banco.contaPoupanca
+                    self.pessoas = banco.pessoa
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
                     }
                 } catch let error {
-                    print(error)
+                    print(error.localizedDescription)
                 }
-            } else {
-                print("Erro na comunicacao", error.debugDescription)
             }
-            }.resume()
-        
-        
+        }.resume()
     }
+//                do {
+//                    if let objJason = try JSONSerialization.jsonObject(with: dataRecuperada, options: .mutableContainers) as? [String : Any] {
+//                        if let contaCorrente = objJason["ContaCorrente"] as? [[String : Any]] {
+//                            for cc in contaCorrente{
+//                                if let idContaCorrente = cc["id"] as? Int{
+//                                    if let saldoContaCorrent = cc["saldo"] as? String{
+//                                        let conta = Conta(id: idContaCorrente, saldo: saldoContaCorrent)
+//                                        self.contasCorrente.append(conta)
+//                                    }
+//                                }
+//                            }
+//                        }
+//                        if let contaPopupanca = objJason["ContaPoupanca"] as? [[String : Any]] {
+//                            for cp in contaPopupanca {
+//                                if let idContaPopupanca = cp["id"] as? Int {
+//                                    if let saldoContaPopupanca = cp["saldo"] as? String{
+//                                        let conta = Conta(id: idContaPopupanca, saldo: saldoContaPopupanca)
+//                                        self.contasPoupanca.append(conta)
+//                                    }
+//                                }
+//                            }
+//                        }
+//                        if let pessoasJson = objJason["Pessoa"] as? [[String : Any]] {
+//                            for p in pessoasJson {
+//                                if let idPessoa = p["id"] as? Int, let nome = p["Nome"] as? String, let contatos = p["Contatos"] as? [Int] {
+//                                    let pessoa = Pessoa(id: idPessoa, nome: nome, contatos: contatos)
+//                                    self.pessoas.append(pessoa)
+//                                }
+//                            }
+//                        }
+//                        DispatchQueue.main.async {
+//                            self.tableView.reloadData()
+//                        }
+//                    }
+//                } catch let error {
+//                    print(error)
+//                }
+//            } else {
+//                print("Erro na comunicacao", error.debugDescription)
+//            }
+//            }.resume()
+//    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -84,7 +92,7 @@ class TableViewController: UITableViewController {
         return pessoas.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let pessoa = pessoas[indexPath.row]
         cell.textLabel?.text = pessoa.nome
@@ -102,10 +110,7 @@ class TableViewController: UITableViewController {
                 let pessoaSelecionada = self.pessoas[indexPath.row]
                 let viewControllerDestino = segue.destination as! ContasTableViewController
                 viewControllerDestino.pessoa = pessoaSelecionada
-                
             }
         }
     }
-    
-    
 }
