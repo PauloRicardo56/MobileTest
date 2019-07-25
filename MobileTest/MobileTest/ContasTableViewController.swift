@@ -11,6 +11,8 @@ import UIKit
 class ContasTableViewController: UITableViewController {
 
     var pessoa: Pessoa!
+    let sections = ["Contas", "Contatos"]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +23,11 @@ class ContasTableViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return sections.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section]
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

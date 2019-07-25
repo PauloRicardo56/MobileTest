@@ -74,11 +74,11 @@
 			isa = PBXGroup;
 			children = (
 				2398B37322E8C81200249275 /* AppDelegate.swift */,
-				2398B38722E8DCBD00249275 /* TableViewController.swift */,
 				2398B37722E8C81200249275 /* Main.storyboard */,
 				2398B37A22E8C81300249275 /* Assets.xcassets */,
 				2398B37C22E8C81300249275 /* LaunchScreen.storyboard */,
 				2398B37F22E8C81300249275 /* Info.plist */,
+				2398B38722E8DCBD00249275 /* TableViewController.swift */,
 				E66C119A22E93558005FA908 /* ContasTableViewController.swift */,
 			);
 			path = MobileTest;
