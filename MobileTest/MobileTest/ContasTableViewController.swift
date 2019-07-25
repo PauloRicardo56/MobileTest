@@ -20,7 +20,6 @@ class ContasTableViewController: UITableViewController {
     
     var sections:Array<String> = []
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
