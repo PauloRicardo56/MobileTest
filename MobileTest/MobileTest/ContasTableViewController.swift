@@ -17,29 +17,46 @@ class ContasTableViewController: UITableViewController {
     var contasPoupanca: Array<Conta> = []
     var contatos: Array<Pessoa> = []
     var itens: [Array<String>] = []
-    
     var sections:Array<String> = []
+    
+    var contaCorrenteSaldos: Array<String> = []
+    var contaPoupancaSaldos: Array<String> = []
+    var nomesContatos: Array<String> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        sections.append("De:")
+        sections.append("De:")
+        sections.append("Para: ")
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        sections.removeAll()
         if delegate.possuiContaCorrente(pessoa){
-            sections.append("Conta Corrente")
             let contasRecuperadas = delegate.recuperarContaCorrente(pessoa)
             contasCorrente = contasRecuperadas
         }
         if delegate.possuiContaPoupanca(pessoa){
-            sections.append("Conta Poupança")
             let contasRecuperadas = delegate.recuperarContaPoupanca(pessoa)
             contasPoupanca = contasRecuperadas
-
         }
-        sections.append("Contatos")
         contatos = delegate.recuperarContatos(pessoa)
         
+        for contato in contatos {
+            nomesContatos.append(contato.nome)
+        }
+        
+        for conta in contasPoupanca {
+            contaPoupancaSaldos.append("Conta Poupaca: R$\(conta.saldo)")
+        }
+        
+        for conta in contasCorrente {
+            contaCorrenteSaldos.append("Conta Corrente: R$\(conta.saldo)")
+        }
+        itens.append(contaCorrenteSaldos)
+        itens.append(contaPoupancaSaldos)
+        itens.append(nomesContatos)
+        
+        print(itens)
         
         tableView.reloadData()
     }
@@ -53,16 +70,19 @@ class ContasTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pessoa.contatos.count
+        return itens[section].count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let contato = pessoa.contatos[indexPath.row]
-        cell.textLabel?.text = String(contato)
+//        let contato = pessoa.contatos[indexPath.row]
+//        cell.textLabel?.text = String(contato)
+        cell.textLabel?.text = itens[indexPath.section][indexPath.row]
     
         return cell
     }
+
+    
 }
 
 
