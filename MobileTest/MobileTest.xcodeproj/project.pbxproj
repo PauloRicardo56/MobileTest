@@ -12,18 +12,19 @@
 		E650A3DC22EA324D00E78E81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E650A3DA22EA324C00E78E81 /* LaunchScreen.storyboard */; };
 		E650A3DD22EA324D00E78E81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E650A3DB22EA324D00E78E81 /* Main.storyboard */; };
 		E650A3EB22EA3BF600E78E81 /* Pessoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A3E322EA3BF600E78E81 /* Pessoa.swift */; };
-		E650A3EC22EA3BF600E78E81 /* ContasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A3E422EA3BF600E78E81 /* ContasTableViewController.swift */; };
 		E650A3EE22EA3BF600E78E81 /* ConfirmacaoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A3E622EA3BF600E78E81 /* ConfirmacaoTableViewController.swift */; };
 		E650A3EF22EA3BF600E78E81 /* Banco.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A3E722EA3BF600E78E81 /* Banco.swift */; };
 		E650A3F022EA3BF600E78E81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A3E822EA3BF600E78E81 /* ViewController.swift */; };
 		E650A3F122EA3BF600E78E81 /* Conta.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A3E922EA3BF600E78E81 /* Conta.swift */; };
-		E650A3F222EA3BF600E78E81 /* ContasTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A3EA22EA3BF600E78E81 /* ContasTableViewControllerDelegate.swift */; };
+		E650A3F222EA3BF600E78E81 /* ContasViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A3EA22EA3BF600E78E81 /* ContasViewControllerDelegate.swift */; };
 		E650A3F722EA40BC00E78E81 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A3F622EA40BC00E78E81 /* Name.swift */; };
 		E650A3FA22EA427700E78E81 /* ContasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A3F922EA427700E78E81 /* ContasViewController.swift */; };
 		E650A3FF22EA443500E78E81 /* ContasTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A3FE22EA443500E78E81 /* ContasTableView.swift */; };
 		E650A40122EA450D00E78E81 /* ContatosTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A40022EA450D00E78E81 /* ContatosTableView.swift */; };
 		E650A40322EA486200E78E81 /* ContasTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A40222EA486200E78E81 /* ContasTableViewDelegate.swift */; };
 		E650A40522EA515E00E78E81 /* ContatosTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A40422EA515E00E78E81 /* ContatosTableViewDelegate.swift */; };
+		E650A40722EB725A00E78E81 /* RecuperaDestinoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A40622EB725A00E78E81 /* RecuperaDestinoDelegate.swift */; };
+		E650A40922EB729100E78E81 /* RecuperaOrigemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A40822EB729100E78E81 /* RecuperaOrigemDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,18 +35,19 @@
 		E650A3DA22EA324C00E78E81 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E650A3DB22EA324D00E78E81 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E650A3E322EA3BF600E78E81 /* Pessoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pessoa.swift; sourceTree = "<group>"; };
-		E650A3E422EA3BF600E78E81 /* ContasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContasTableViewController.swift; sourceTree = "<group>"; };
 		E650A3E622EA3BF600E78E81 /* ConfirmacaoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmacaoTableViewController.swift; sourceTree = "<group>"; };
 		E650A3E722EA3BF600E78E81 /* Banco.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Banco.swift; sourceTree = "<group>"; };
 		E650A3E822EA3BF600E78E81 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E650A3E922EA3BF600E78E81 /* Conta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conta.swift; sourceTree = "<group>"; };
-		E650A3EA22EA3BF600E78E81 /* ContasTableViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContasTableViewControllerDelegate.swift; sourceTree = "<group>"; };
+		E650A3EA22EA3BF600E78E81 /* ContasViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContasViewControllerDelegate.swift; sourceTree = "<group>"; };
 		E650A3F622EA40BC00E78E81 /* Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
 		E650A3F922EA427700E78E81 /* ContasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContasViewController.swift; sourceTree = "<group>"; };
 		E650A3FE22EA443500E78E81 /* ContasTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContasTableView.swift; sourceTree = "<group>"; };
 		E650A40022EA450D00E78E81 /* ContatosTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatosTableView.swift; sourceTree = "<group>"; };
 		E650A40222EA486200E78E81 /* ContasTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContasTableViewDelegate.swift; sourceTree = "<group>"; };
 		E650A40422EA515E00E78E81 /* ContatosTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatosTableViewDelegate.swift; sourceTree = "<group>"; };
+		E650A40622EB725A00E78E81 /* RecuperaDestinoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecuperaDestinoDelegate.swift; sourceTree = "<group>"; };
+		E650A40822EB729100E78E81 /* RecuperaOrigemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecuperaOrigemDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				E650A3E622EA3BF600E78E81 /* ConfirmacaoTableViewController.swift */,
-				E650A3E422EA3BF600E78E81 /* ContasTableViewController.swift */,
 				E650A3E822EA3BF600E78E81 /* ViewController.swift */,
 				E650A3F922EA427700E78E81 /* ContasViewController.swift */,
 			);
@@ -113,9 +114,11 @@
 		E650A3F422EA3C1900E78E81 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				E650A3EA22EA3BF600E78E81 /* ContasTableViewControllerDelegate.swift */,
+				E650A3EA22EA3BF600E78E81 /* ContasViewControllerDelegate.swift */,
 				E650A40222EA486200E78E81 /* ContasTableViewDelegate.swift */,
 				E650A40422EA515E00E78E81 /* ContatosTableViewDelegate.swift */,
+				E650A40622EB725A00E78E81 /* RecuperaDestinoDelegate.swift */,
+				E650A40822EB729100E78E81 /* RecuperaOrigemDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -213,10 +216,11 @@
 			files = (
 				E650A40122EA450D00E78E81 /* ContatosTableView.swift in Sources */,
 				E650A3FF22EA443500E78E81 /* ContasTableView.swift in Sources */,
-				E650A3F222EA3BF600E78E81 /* ContasTableViewControllerDelegate.swift in Sources */,
+				E650A40722EB725A00E78E81 /* RecuperaDestinoDelegate.swift in Sources */,
+				E650A3F222EA3BF600E78E81 /* ContasViewControllerDelegate.swift in Sources */,
 				E650A3EF22EA3BF600E78E81 /* Banco.swift in Sources */,
-				E650A3EC22EA3BF600E78E81 /* ContasTableViewController.swift in Sources */,
 				E650A3F122EA3BF600E78E81 /* Conta.swift in Sources */,
+				E650A40922EB729100E78E81 /* RecuperaOrigemDelegate.swift in Sources */,
 				E650A3FA22EA427700E78E81 /* ContasViewController.swift in Sources */,
 				E650A3EB22EA3BF600E78E81 /* Pessoa.swift in Sources */,
 				E650A3F022EA3BF600E78E81 /* ViewController.swift in Sources */,

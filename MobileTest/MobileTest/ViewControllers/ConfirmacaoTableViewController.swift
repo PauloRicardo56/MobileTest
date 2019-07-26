@@ -11,13 +11,19 @@ import UIKit
 class ConfirmacaoTableViewController: UITableViewController {
     
 
-    @IBOutlet weak var contaOrigemTextField: UIView!
+    @IBOutlet weak var contaOrigemTextField: UILabel!
     @IBOutlet weak var contaDestinoTextField: UILabel!
     @IBOutlet weak var valorTextField: UILabel!
     var valorSoma: Double = 0.0
     
+    var contaOrigem: Conta!
+    var contatoDestino: Pessoa!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        contaOrigemTextField.text = contaOrigem.saldo
+        contaDestinoTextField.text = contatoDestino.nome
         
         valorTextField.text = "\(valorSoma)"
     }

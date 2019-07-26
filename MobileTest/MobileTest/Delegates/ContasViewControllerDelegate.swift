@@ -9,7 +9,7 @@
 import Foundation
 
 
-protocol ContasTableViewControllerDelegate {
+protocol ContasViewControllerDelegate {
     func recuperarContatos(_ pessoaSelecionada: Pessoa) -> [Pessoa]
     func recuperarContaCorrente(_ pessoaSelecionada: Pessoa) -> [Conta]
     func recuperarContaPoupanca(_ pessoaSelecionada: Pessoa) -> [Conta]
