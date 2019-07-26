@@ -65,7 +65,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "login" {
             
-            let viewControllerDest = segue.destination as! ContasTableViewController
+            let viewControllerDest = segue.destination as! ContasViewController
             viewControllerDest.delegate = self
             viewControllerDest.pessoa = pessoas[picker.selectedRow(inComponent: 0)]
             print(picker.selectedRow(inComponent: 0))
