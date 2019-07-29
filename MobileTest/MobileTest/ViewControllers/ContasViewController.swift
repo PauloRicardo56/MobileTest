@@ -11,13 +11,17 @@ import UIKit
 class ContasViewController: UIViewController {
     
     var pessoa: Pessoa!
-    var delegate: ContasTableViewControllerDelegate!
+    var delegate: ContasViewControllerDelegate!
     var contasCorrente: Array<Conta> = []
     var contasPoupanca: Array<Conta> = []
     var contatos: Array<Pessoa> = []
     var names: [Name] = []
-    var sortedFirstLetter: [String] = []
-    var sections: [[Name]] = [[]]
+    var contaSelecionada: RecuperaOrigemDelegate!
+    var contatoSelecionada: RecuperaDestinoDelegate!
+    var contaOrigem: Conta!
+    var contatoDestino: Pessoa!
+    var butaoCheck: [Int] = [0,0]
+    var stringConta:String = ""
     
     var contaCorrenteSaldos: Array<String> = []
     var contaPoupancaSaldos: Array<String> = []
@@ -25,12 +29,16 @@ class ContasViewController: UIViewController {
 
     @IBOutlet weak var tableViewContas: UITableView!
     @IBOutlet weak var tableViewContatos: UITableView!
+    @IBOutlet weak var butaoOutlet: UIButton!
     
     let tableViewContasDelegate = ContasTableView()
     let tableViewContatosDelegate = ContatosTableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableViewContasDelegate.viewDestino = self
+        tableViewContatosDelegate.viewDestino = self
         tableViewContasDelegate.delegate = self
         tableViewContatosDelegate.delegate = self
         
@@ -42,6 +50,9 @@ class ContasViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        butaoOutlet.isEnabled = false
+        butaoCheck = [0,0]
+        
         if delegate.possuiContaCorrente(pessoa){
             let contasRecuperadas = delegate.recuperarContaCorrente(pessoa)
             contasCorrente = contasRecuperadas
@@ -52,14 +63,17 @@ class ContasViewController: UIViewController {
         }
         contatos = delegate.recuperarContatos(pessoa)
         
+        nomesContatos = []
         for contato in contatos {
             nomesContatos.append(contato.nome)
         }
         
+        contaPoupancaSaldos = []
         for conta in contasPoupanca {
             contaPoupancaSaldos.append("Conta Poupaca: R$\(conta.saldo)")
         }
         
+        contaCorrenteSaldos = []
         for conta in contasCorrente {
             contaCorrenteSaldos.append("Conta Corrente: R$\(conta.saldo)")
         }
@@ -74,6 +88,40 @@ class ContasViewController: UIViewController {
         tableViewContas.reloadData()
         tableViewContatos.reloadData()
     }
+    
+    @IBAction func confirmarInformacoes(_ sender: Any) {
+        let linhaContaSelecionada = self.contaSelecionada.recuperaOrigem()
+        let linhaContatoSelecionada = self.contatoSelecionada.recuperaDestino()
+        
+        
+        if linhaContatoSelecionada != -1 && linhaContaSelecionada != -1 {
+            if linhaContaSelecionada > contasCorrente.count - 1 {
+                print(linhaContaSelecionada)
+                print(contasCorrente.count - 1)
+                contaOrigem = contasPoupanca[linhaContaSelecionada-contasCorrente.count]
+                stringConta = "Conta Poupaca: R$\(contasPoupanca[linhaContaSelecionada-contasCorrente.count].saldo)"
+            }else {
+                contaOrigem = contasCorrente[linhaContaSelecionada]
+                stringConta = "Conta Corrente: R$\(contasCorrente[linhaContaSelecionada].saldo)"
+            }
+            
+            
+            contatoDestino = contatos[linhaContatoSelecionada]
+        
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "confirmacao" {
+            let viewControllerdestino = segue.destination as! ConfirmacaoTableViewController
+            viewControllerdestino.contatoDestino = contatoDestino
+            viewControllerdestino.contaOrigem = contaOrigem
+            viewControllerdestino.contaString = stringConta
+        }
+    }
+    
+    
 }
 
 extension ContasViewController: ContasTableViewDelegate {
@@ -88,6 +136,7 @@ extension ContasViewController: ContasTableViewDelegate {
 
 extension ContasViewController: ContatosTableViewDelegate {
     func recuperarContatos() -> [String] {
+        print(nomesContatos)
         return nomesContatos
     }
 }

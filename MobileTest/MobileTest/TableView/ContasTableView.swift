@@ -13,9 +13,11 @@ class ContasTableView: NSObject, UITableViewDelegate, UITableViewDataSource {
     var delegate: ContasTableViewDelegate!
     var saldoContaCorrente: [String] = []
     var saldoContaPoupanca: [String] = []
-    var saldoContasTotais: [String] = []
+    var contaSelecionada: Int  = -1
+    var viewDestino: ContasViewController!
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        viewDestino.contaSelecionada = self
         return 1
     }
     
@@ -26,19 +28,35 @@ class ContasTableView: NSObject, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.saldoContaCorrente = delegate.recuperarContaCorrente()
         self.saldoContaPoupanca = delegate.recuperarContaPoupanca()
-        for saldo in saldoContaCorrente {
-            saldoContasTotais.append(saldo)
-        }
-        for saldo in saldoContaPoupanca {
-            saldoContasTotais.append(saldo)
-        }
         let qtd = saldoContaCorrente.count + saldoContaPoupanca.count
         return qtd
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = saldoContasTotais[indexPath.row]
+        
+        if indexPath.row > saldoContaCorrente.count - 1{
+            cell.textLabel?.text = saldoContaPoupanca[indexPath.row-saldoContaCorrente.count]
+        }else{
+            cell.textLabel?.text = saldoContaCorrente[indexPath.row]
+        }
+        
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewDestino.butaoCheck[1] = 1
+        if viewDestino.butaoCheck == [1,1] {
+            viewDestino.butaoOutlet.isEnabled = true 
+        }
+        contaSelecionada = indexPath.row
+    }
 }
+
+extension ContasTableView: RecuperaOrigemDelegate {
+    func recuperaOrigem() -> Int {
+        return contaSelecionada
+    }
+    
+}
+

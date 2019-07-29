@@ -11,8 +11,11 @@ import UIKit
 class ContatosTableView: NSObject,UITableViewDelegate, UITableViewDataSource {
     var delegate: ContatosTableViewDelegate!
     var nomesContatos: [String] = []
+    var contatoSelecionado: Int = -1
+    var viewDestino: ContasViewController!
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        viewDestino.contatoSelecionada = self
         return 1
     }
     
@@ -28,9 +31,22 @@ class ContatosTableView: NSObject,UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = nomesContatos[indexPath.row]
-        
+    
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewDestino.butaoCheck[0] = 1
+        if viewDestino.butaoCheck == [1,1] {
+            viewDestino.butaoOutlet.isEnabled = true
+        }
+        contatoSelecionado = indexPath.row
+    }
     
+}
+
+extension ContatosTableView: RecuperaDestinoDelegate {
+    func recuperaDestino() -> Int {
+        return contatoSelecionado
+    }
 }

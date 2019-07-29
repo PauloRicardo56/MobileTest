@@ -73,18 +73,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             
             print(viewControllerDest.pessoa.nome)
             
-//            if let indexPath = tableView.indexPathForSelectedRow{
-//                let pessoaSelecionada = self.pessoas[indexPath.row]
-//                let viewControllerDestino = segue.destination as! ContasTableViewController
-//                viewControllerDestino.delegate = self
-//                viewControllerDestino.pessoa = pessoaSelecionada
-//            }
         }
     }
 }
 
 
-extension ViewController: ContasTableViewControllerDelegate{
+extension ViewController: ContasViewControllerDelegate{
     func recuperarContatos(_ pessoaSelecionada: Pessoa) -> [Pessoa] {
         var contatosRecuperados: [Pessoa] = []
         
