@@ -12,7 +12,7 @@ import Foundation
 class Conta: Codable {
     
     let id: Int
-    let saldo: String
+    var saldo: String
     
 //    init(id: Int, saldo: String) {
 //        self.id = id
