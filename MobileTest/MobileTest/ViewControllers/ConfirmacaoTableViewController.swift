@@ -27,18 +27,25 @@ class ConfirmacaoTableViewController: UITableViewController {
         contaOrigemTextField.text = contaString
         contaDestinoTextField.text = contatoDestino.nome
         
+        print("Banco\(banco.contaPoupanca[0].saldo)")
+        
         valorTextField.text = "\(valorSoma)"
         
     }
 
+    
     @IBAction func addUm(_ sender: Any) {
         add(1)
         valorTextField.text = "\(valorSoma)"
     }
+    
+    
     @IBAction func addCinco(_ sender: Any) {
         add(5)
         valorTextField.text = "\(valorSoma)"
     }
+    
+    
     @IBAction func addDez(_ sender: Any) {
         add(10)
         valorTextField.text = "\(valorSoma)"
@@ -58,6 +65,52 @@ class ConfirmacaoTableViewController: UITableViewController {
         alertConfirm.addAction(acaoConfirmar)
         alertConfirm.addAction(acaoCancelar)
         present(alertConfirm, animated: true, completion: nil)
+        
+        let fileName = "Banco.json"
+        var dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        dir[0].appendPathComponent(fileName)
+        
+        // Conta Origem
+        if (contaOrigemTextField?.text!.contains("Poupanca"))! {
+            
+            for i in banco.contaPoupanca {
+                if contaOrigem! === i {
+                    i.saldo = String(Double(i.saldo)! - self.valorSoma)
+                }
+            }
+        } else {
+            
+            for i in banco.contaCorrente {
+                if contaOrigem! === i {
+                    i.saldo = String(Double(i.saldo)! - self.valorSoma)
+                }
+            }
+        }
+        
+        // Conta Destino (conta corrente vem primeiro)
+        var flag: Int = 0
+        for i in banco.contaCorrente {
+            
+            if contatoDestino.id == i.id {
+                i.saldo = String(Double(i.saldo)! + self.valorSoma)
+                flag = 1
+            }
+        }
+        if flag != 1 {
+            
+            for i in banco.contaPoupanca {
+                
+                if contatoDestino.id == i.id {
+                    i.saldo = String(Double(i.saldo)! + self.valorSoma)
+                    flag = 1
+                }
+            }
+        }
+        
+        let jsonData = try? JSONEncoder().encode(banco)
+        try? jsonData?.write(to: dir[0])
+        
+        print(dir[0].absoluteString)
     }
     
     func add(_ valorSoma: Double) {

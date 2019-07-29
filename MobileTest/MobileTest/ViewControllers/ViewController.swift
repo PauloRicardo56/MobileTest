@@ -68,11 +68,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             let viewControllerDest = segue.destination as! ContasViewController
             viewControllerDest.delegate = self
             viewControllerDest.pessoa = pessoas[picker.selectedRow(inComponent: 0)]
-            print(picker.selectedRow(inComponent: 0))
-            
-            
-            print(viewControllerDest.pessoa.nome)
-            
         }
     }
 }
@@ -115,6 +110,7 @@ extension ViewController: ContasViewControllerDelegate {
         return contaRecuperada
     }
     
+    
     func possuiContaCorrente(_ pessoaSelecionada: Pessoa) -> Bool {
         for conta in contasCorrente {
             if conta.id == pessoaSelecionada.id {
@@ -123,6 +119,7 @@ extension ViewController: ContasViewControllerDelegate {
         }
         return false
     }
+    
     
     func possuiContaPoupanca(_ pessoaSelecionada: Pessoa) -> Bool {
         for conta in contasPoupanca{
@@ -133,11 +130,13 @@ extension ViewController: ContasViewControllerDelegate {
         return false
     }
     
-    func recuperarBanco() -> Banco{
+    
+    func recuperarBanco() -> Banco {
         let banco = Banco()
         banco.contaCorrente = self.contasCorrente
         banco.contaPoupanca = self.contasPoupanca
         banco.pessoa = self.pessoas
+
         return banco
     }
 }
