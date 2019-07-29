@@ -78,7 +78,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 }
 
 
-extension ViewController: ContasViewControllerDelegate{
+extension ViewController: ContasViewControllerDelegate {
     func recuperarContatos(_ pessoaSelecionada: Pessoa) -> [Pessoa] {
         var contatosRecuperados: [Pessoa] = []
         
@@ -132,4 +132,13 @@ extension ViewController: ContasViewControllerDelegate{
         }
         return false
     }
+    
+    func recuperarBanco() -> Banco{
+        let banco = Banco()
+        banco.contaCorrente = self.contasCorrente
+        banco.contaPoupanca = self.contasPoupanca
+        banco.pessoa = self.pessoas
+        return banco
+    }
 }
+

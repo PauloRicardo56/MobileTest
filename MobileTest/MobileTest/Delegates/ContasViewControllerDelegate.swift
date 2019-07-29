@@ -15,4 +15,5 @@ protocol ContasViewControllerDelegate {
     func recuperarContaPoupanca(_ pessoaSelecionada: Pessoa) -> [Conta]
     func possuiContaCorrente(_ pessoaSelecionada: Pessoa) -> Bool
     func possuiContaPoupanca(_ pessoaSelecionada: Pessoa) -> Bool
+    func recuperarBanco() -> Banco
 }
