@@ -118,7 +118,7 @@ class ContasViewController: UIViewController {
             viewControllerdestino.contatoDestino = contatoDestino
             viewControllerdestino.contaOrigem = contaOrigem
             viewControllerdestino.contaString = stringConta
-            viewControllerdestino.banco = delegate.recuperarBanco()
+            viewControllerdestino.bancoGeral = delegate.recuperarBanco()
         }
     }
     
