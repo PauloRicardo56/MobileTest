@@ -27,7 +27,7 @@ class ConfirmacaoTableViewController: UITableViewController {
         contaOrigemTextField.text = contaString
         contaDestinoTextField.text = contatoDestino.nome
         
-        print("Banco\(banco.contaPoupanca[0].saldo)")
+        print("Banco\(bancoGeral.contaPoupanca[0].saldo)")
         
         valorTextField.text = "\(valorSoma)"
         
@@ -50,68 +50,78 @@ class ConfirmacaoTableViewController: UITableViewController {
         add(10)
         valorTextField.text = "\(valorSoma)"
     }
+    
+    
     @IBAction func addCem(_ sender: Any) {
         add(100)
         valorTextField.text = "\(valorSoma)"
     }
+    
+    
     @IBAction func addMil(_ sender: Any) {
         add(1000)
         valorTextField.text = "\(valorSoma)"
     }
+    
+    
+    // MARK: - Write JSON
     @IBAction func confirmar(_ sender: Any) {
+        
         let alertConfirm = UIAlertController(title: "Confirmaçao", message: "Você deseja transferir R$\(valorSoma) para \(contatoDestino.nome) ?", preferredStyle: .alert)
-        let acaoConfirmar = UIAlertAction(title: "Confirmar", style: .default, handler: nil)
-        let acaoCancelar = UIAlertAction(title: "Sair", style: .cancel, handler: nil)
-        alertConfirm.addAction(acaoConfirmar)
-        alertConfirm.addAction(acaoCancelar)
-        present(alertConfirm, animated: true, completion: nil)
-        
-        let fileName = "Banco.json"
-        var dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        dir[0].appendPathComponent(fileName)
-        
-        // Conta Origem
-        if (contaOrigemTextField?.text!.contains("Poupanca"))! {
+        let acaoConfirmar = UIAlertAction(title: "Confirmar", style: .default) { (completion) in
             
-            for i in banco.contaPoupanca {
-                if contaOrigem! === i {
-                    i.saldo = String(Double(i.saldo)! - self.valorSoma)
-                }
-            }
-        } else {
+            let fileName = "Banco.json"
+            var dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            dir[0].appendPathComponent(fileName)
             
-            for i in banco.contaCorrente {
-                if contaOrigem! === i {
-                    i.saldo = String(Double(i.saldo)! - self.valorSoma)
-                }
-            }
-        }
-        
-        // Conta Destino (conta corrente vem primeiro)
-        var flag: Int = 0
-        for i in banco.contaCorrente {
-            
-            if contatoDestino.id == i.id {
-                i.saldo = String(Double(i.saldo)! + self.valorSoma)
-                flag = 1
-            }
-        }
-        if flag != 1 {
-            
-            for i in banco.contaPoupanca {
+            // Conta Origem
+            if (self.contaOrigemTextField?.text!.contains("Poupanca"))! {
                 
-                if contatoDestino.id == i.id {
+                for i in self.bancoGeral.contaPoupanca {
+                    if self.contaOrigem! === i {
+                        i.saldo = String(Double(i.saldo)! - self.valorSoma)
+                    }
+                }
+            } else {
+                
+                for i in self.bancoGeral.contaCorrente {
+                    if self.contaOrigem! === i {
+                        i.saldo = String(Double(i.saldo)! - self.valorSoma)
+                    }
+                }
+            }
+            
+            // Conta Destino (conta corrente vem primeiro)
+            var flag: Int = 0
+            for i in self.bancoGeral.contaCorrente {
+                
+                if self.contatoDestino.id == i.id {
                     i.saldo = String(Double(i.saldo)! + self.valorSoma)
                     flag = 1
                 }
             }
+            if flag != 1 {
+                
+                for i in self.bancoGeral.contaPoupanca {
+                    
+                    if self.contatoDestino.id == i.id {
+                        i.saldo = String(Double(i.saldo)! + self.valorSoma)
+                        flag = 1
+                    }
+                }
+            }
+            
+            let jsonData = try? JSONEncoder().encode(self.bancoGeral)
+            try? jsonData?.write(to: dir[0])
+            
+            print(dir[0].absoluteString)
         }
-        
-        let jsonData = try? JSONEncoder().encode(banco)
-        try? jsonData?.write(to: dir[0])
-        
-        print(dir[0].absoluteString)
+        let acaoCancelar = UIAlertAction(title: "Sair", style: .cancel, handler: nil)
+        alertConfirm.addAction(acaoConfirmar)
+        alertConfirm.addAction(acaoCancelar)
+        present(alertConfirm, animated: true, completion: nil)
     }
+    
     
     func add(_ valorSoma: Double) {
         print(valorSoma)
@@ -124,9 +134,7 @@ class ConfirmacaoTableViewController: UITableViewController {
                 present(alertErro, animated: true, completion: nil)
                 return
             }
-            
             self.valorSoma += valorSoma
         }
     }
-    
 }
