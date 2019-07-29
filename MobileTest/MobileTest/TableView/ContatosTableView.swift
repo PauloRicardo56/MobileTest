@@ -13,19 +13,23 @@ class ContatosTableView: NSObject,UITableViewDelegate, UITableViewDataSource {
     var nomesContatos: [String] = []
     var contatoSelecionado: Int = -1
     var viewDestino: ContasViewController!
+    var names: [Name] = []
+    var primeiraLetrasOrdenadas: [String] = []
+    var sections: [[Name]] = [[]]
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        viewDestino.contatoSelecionada = self
-        return 1
+        return sections.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Para: "
+        return primeiraLetrasOrdenadas[section]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        nomesContatos = delegate.recuperarContatos()
-        return nomesContatos.count
+        //nomesContatos = delegate.recuperarContatos()
+        //return nomesContatos.count
+        return sections[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

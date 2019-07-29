@@ -21,10 +21,6 @@ class ContasTableView: NSObject, UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "De: "
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.saldoContaCorrente = delegate.recuperarContaCorrente()
         self.saldoContaPoupanca = delegate.recuperarContaPoupanca()
