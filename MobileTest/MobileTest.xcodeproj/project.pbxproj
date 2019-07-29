@@ -12,7 +12,6 @@
 		E650A3DC22EA324D00E78E81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E650A3DA22EA324C00E78E81 /* LaunchScreen.storyboard */; };
 		E650A3DD22EA324D00E78E81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E650A3DB22EA324D00E78E81 /* Main.storyboard */; };
 		E650A3EB22EA3BF600E78E81 /* Pessoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A3E322EA3BF600E78E81 /* Pessoa.swift */; };
-		E650A3EC22EA3BF600E78E81 /* ContasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A3E422EA3BF600E78E81 /* ContasTableViewController.swift */; };
 		E650A3EE22EA3BF600E78E81 /* ConfirmacaoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A3E622EA3BF600E78E81 /* ConfirmacaoTableViewController.swift */; };
 		E650A3EF22EA3BF600E78E81 /* Banco.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A3E722EA3BF600E78E81 /* Banco.swift */; };
 		E650A3F022EA3BF600E78E81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A3E822EA3BF600E78E81 /* ViewController.swift */; };
@@ -34,7 +33,6 @@
 		E650A3DA22EA324C00E78E81 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E650A3DB22EA324D00E78E81 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E650A3E322EA3BF600E78E81 /* Pessoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pessoa.swift; sourceTree = "<group>"; };
-		E650A3E422EA3BF600E78E81 /* ContasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContasTableViewController.swift; sourceTree = "<group>"; };
 		E650A3E622EA3BF600E78E81 /* ConfirmacaoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmacaoTableViewController.swift; sourceTree = "<group>"; };
 		E650A3E722EA3BF600E78E81 /* Banco.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Banco.swift; sourceTree = "<group>"; };
 		E650A3E822EA3BF600E78E81 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				E650A3E622EA3BF600E78E81 /* ConfirmacaoTableViewController.swift */,
-				E650A3E422EA3BF600E78E81 /* ContasTableViewController.swift */,
 				E650A3E822EA3BF600E78E81 /* ViewController.swift */,
 				E650A3F922EA427700E78E81 /* ContasViewController.swift */,
 			);
@@ -215,7 +212,6 @@
 				E650A3FF22EA443500E78E81 /* ContasTableView.swift in Sources */,
 				E650A3F222EA3BF600E78E81 /* ContasTableViewControllerDelegate.swift in Sources */,
 				E650A3EF22EA3BF600E78E81 /* Banco.swift in Sources */,
-				E650A3EC22EA3BF600E78E81 /* ContasTableViewController.swift in Sources */,
 				E650A3F122EA3BF600E78E81 /* Conta.swift in Sources */,
 				E650A3FA22EA427700E78E81 /* ContasViewController.swift in Sources */,
 				E650A3EB22EA3BF600E78E81 /* Pessoa.swift in Sources */,
