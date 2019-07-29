@@ -16,13 +16,12 @@ class ContasViewController: UIViewController {
     var contasPoupanca: Array<Conta> = []
     var contatos: Array<Pessoa> = []
     var names: [Name] = []
-    var sortedFirstLetter: [String] = []
-    var sections: [[Name]] = [[]]
     var contaSelecionada: RecuperaOrigemDelegate!
     var contatoSelecionada: RecuperaDestinoDelegate!
     var contaOrigem: Conta!
     var contatoDestino: Pessoa!
     var butaoCheck: [Int] = [0,0]
+    var stringConta:String = ""
     
     var contaCorrenteSaldos: Array<String> = []
     var contaPoupancaSaldos: Array<String> = []
@@ -100,8 +99,10 @@ class ContasViewController: UIViewController {
                 print(linhaContaSelecionada)
                 print(contasCorrente.count - 1)
                 contaOrigem = contasPoupanca[linhaContaSelecionada-contasCorrente.count]
+                stringConta = "Conta Poupaca: R$\(contasPoupanca[linhaContaSelecionada-contasCorrente.count].saldo)"
             }else {
                 contaOrigem = contasCorrente[linhaContaSelecionada]
+                stringConta = "Conta Corrente: R$\(contasCorrente[linhaContaSelecionada].saldo)"
             }
             
             
@@ -116,6 +117,7 @@ class ContasViewController: UIViewController {
             let viewControllerdestino = segue.destination as! ConfirmacaoTableViewController
             viewControllerdestino.contatoDestino = contatoDestino
             viewControllerdestino.contaOrigem = contaOrigem
+            viewControllerdestino.contaString = stringConta
         }
     }
     

@@ -14,6 +14,7 @@ class ConfirmacaoTableViewController: UITableViewController {
     @IBOutlet weak var contaOrigemTextField: UILabel!
     @IBOutlet weak var contaDestinoTextField: UILabel!
     @IBOutlet weak var valorTextField: UILabel!
+    var contaString: String = ""
     var valorSoma: Double = 0.0
     
     var contaOrigem: Conta!
@@ -22,7 +23,7 @@ class ConfirmacaoTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        contaOrigemTextField.text = contaOrigem.saldo
+        contaOrigemTextField.text = contaString
         contaDestinoTextField.text = contatoDestino.nome
         
         valorTextField.text = "\(valorSoma)"
