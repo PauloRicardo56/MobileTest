@@ -27,7 +27,7 @@ class ConfirmacaoTableViewController: UITableViewController {
         contaOrigemTextField.text = contaString
         contaDestinoTextField.text = contatoDestino.nome
         
-        print("Banco\(banco.contaPoupanca[0].saldo)")
+        print("Banco\(bancoGeral.contaPoupanca[0].saldo)")
         
         valorTextField.text = "\(valorSoma)"
         
@@ -73,14 +73,14 @@ class ConfirmacaoTableViewController: UITableViewController {
         // Conta Origem
         if (contaOrigemTextField?.text!.contains("Poupanca"))! {
             
-            for i in banco.contaPoupanca {
+            for i in bancoGeral.contaPoupanca {
                 if contaOrigem! === i {
                     i.saldo = String(Double(i.saldo)! - self.valorSoma)
                 }
             }
         } else {
             
-            for i in banco.contaCorrente {
+            for i in bancoGeral.contaCorrente {
                 if contaOrigem! === i {
                     i.saldo = String(Double(i.saldo)! - self.valorSoma)
                 }
@@ -89,7 +89,7 @@ class ConfirmacaoTableViewController: UITableViewController {
         
         // Conta Destino (conta corrente vem primeiro)
         var flag: Int = 0
-        for i in banco.contaCorrente {
+        for i in bancoGeral.contaCorrente {
             
             if contatoDestino.id == i.id {
                 i.saldo = String(Double(i.saldo)! + self.valorSoma)
@@ -98,7 +98,7 @@ class ConfirmacaoTableViewController: UITableViewController {
         }
         if flag != 1 {
             
-            for i in banco.contaPoupanca {
+            for i in bancoGeral.contaPoupanca {
                 
                 if contatoDestino.id == i.id {
                     i.saldo = String(Double(i.saldo)! + self.valorSoma)
@@ -107,7 +107,7 @@ class ConfirmacaoTableViewController: UITableViewController {
             }
         }
         
-        let jsonData = try? JSONEncoder().encode(banco)
+        let jsonData = try? JSONEncoder().encode(bancoGeral)
         try? jsonData?.write(to: dir[0])
         
         print(dir[0].absoluteString)
