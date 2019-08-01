@@ -2,8 +2,8 @@
 
 ## Autores
 
-  * Fábio França Costa Júnior: [Linkedin](https://www.linkedin.com/in/fabiofrancajr),[GitHub](https://github.com/fabiofranca19)
-  * Paulo Ricardo de Araujo Vieira: [Linkedin](https://www.linkedin.com/in/pauloricardoav),[GitHub](https://github.com/pauloricardo56)
+  * Fábio França Costa Júnior: [Linkedin](https://www.linkedin.com/in/fabiofrancajr), [GitHub](https://github.com/fabiofranca19)
+  * Paulo Ricardo de Araujo Vieira: [Linkedin](https://www.linkedin.com/in/pauloricardoav), [GitHub](https://github.com/pauloricardo56)
 
 ## Raciocínio
 
