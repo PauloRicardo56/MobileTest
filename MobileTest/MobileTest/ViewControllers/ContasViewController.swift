@@ -116,9 +116,6 @@ class ContasViewController: UIViewController {
     func ordenarPorNome(this:Pessoa, that:Pessoa) -> Bool {
         return this.nome < that.nome
     }
-    
-    
-    
 }
 
 extension ContasViewController: ContasTableViewDelegate {

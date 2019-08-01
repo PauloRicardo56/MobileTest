@@ -65,14 +65,13 @@ class ConfirmacaoTableViewController: UITableViewController {
         alertConfirm.addAction(acaoConfirmar)
         alertConfirm.addAction(acaoCancelar)
         present(alertConfirm, animated: true, completion: nil)
-        
+        // --------------------------------------------------
         let fileName = "Banco.json"
         var dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         dir[0].appendPathComponent(fileName)
         
         // Conta Origem
         if (contaOrigemTextField?.text!.contains("Poupanca"))! {
-            
             for i in bancoGeral.contaPoupanca {
                 if contaOrigem! === i {
                     i.saldo = String(Double(i.saldo)! - self.valorSoma)
@@ -111,6 +110,7 @@ class ConfirmacaoTableViewController: UITableViewController {
         try? jsonData?.write(to: dir[0])
         
         print(dir[0].absoluteString)
+        // --------------------------------------------------
     }
     
     func add(_ valorSoma: Double) {
