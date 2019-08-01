@@ -22,7 +22,6 @@
 		E650A3FF22EA443500E78E81 /* ContasTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A3FE22EA443500E78E81 /* ContasTableView.swift */; };
 		E650A40122EA450D00E78E81 /* ContatosTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A40022EA450D00E78E81 /* ContatosTableView.swift */; };
 		E650A40322EA486200E78E81 /* ContasTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A40222EA486200E78E81 /* ContasTableViewDelegate.swift */; };
-		E650A40522EA515E00E78E81 /* ContatosTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A40422EA515E00E78E81 /* ContatosTableViewDelegate.swift */; };
 		E650A40722EB725A00E78E81 /* RecuperaDestinoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A40622EB725A00E78E81 /* RecuperaDestinoDelegate.swift */; };
 		E650A40922EB729100E78E81 /* RecuperaOrigemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650A40822EB729100E78E81 /* RecuperaOrigemDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -45,7 +44,6 @@
 		E650A3FE22EA443500E78E81 /* ContasTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContasTableView.swift; sourceTree = "<group>"; };
 		E650A40022EA450D00E78E81 /* ContatosTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatosTableView.swift; sourceTree = "<group>"; };
 		E650A40222EA486200E78E81 /* ContasTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContasTableViewDelegate.swift; sourceTree = "<group>"; };
-		E650A40422EA515E00E78E81 /* ContatosTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatosTableViewDelegate.swift; sourceTree = "<group>"; };
 		E650A40622EB725A00E78E81 /* RecuperaDestinoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecuperaDestinoDelegate.swift; sourceTree = "<group>"; };
 		E650A40822EB729100E78E81 /* RecuperaOrigemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecuperaOrigemDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,7 +114,6 @@
 			children = (
 				E650A3EA22EA3BF600E78E81 /* ContasViewControllerDelegate.swift */,
 				E650A40222EA486200E78E81 /* ContasTableViewDelegate.swift */,
-				E650A40422EA515E00E78E81 /* ContatosTableViewDelegate.swift */,
 				E650A40622EB725A00E78E81 /* RecuperaDestinoDelegate.swift */,
 				E650A40822EB729100E78E81 /* RecuperaOrigemDelegate.swift */,
 			);
@@ -224,7 +221,6 @@
 				E650A3FA22EA427700E78E81 /* ContasViewController.swift in Sources */,
 				E650A3EB22EA3BF600E78E81 /* Pessoa.swift in Sources */,
 				E650A3F022EA3BF600E78E81 /* ViewController.swift in Sources */,
-				E650A40522EA515E00E78E81 /* ContatosTableViewDelegate.swift in Sources */,
 				E650A3F722EA40BC00E78E81 /* Name.swift in Sources */,
 				E650A3EE22EA3BF600E78E81 /* ConfirmacaoTableViewController.swift in Sources */,
 				E650A40322EA486200E78E81 /* ContasTableViewDelegate.swift in Sources */,

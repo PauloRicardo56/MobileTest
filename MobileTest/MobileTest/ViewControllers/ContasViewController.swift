@@ -14,7 +14,7 @@ class ContasViewController: UIViewController {
     var delegate: ContasViewControllerDelegate!
     var contasCorrente: Array<Conta> = []
     var contasPoupanca: Array<Conta> = []
-    var contatos: Array<Pessoa> = []
+    var contatos: [Pessoa] = []
     var names: [Name] = []
     var contaSelecionada: RecuperaOrigemDelegate!
     var contatoSelecionada: RecuperaDestinoDelegate!
@@ -25,7 +25,6 @@ class ContasViewController: UIViewController {
     
     var contaCorrenteSaldos: Array<String> = []
     var contaPoupancaSaldos: Array<String> = []
-    var nomesContatos: Array<String> = []
 
     @IBOutlet weak var tableViewContas: UITableView!
     @IBOutlet weak var tableViewContatos: UITableView!
@@ -40,13 +39,11 @@ class ContasViewController: UIViewController {
         tableViewContasDelegate.viewDestino = self
         tableViewContatosDelegate.viewDestino = self
         tableViewContasDelegate.delegate = self
-        tableViewContatosDelegate.delegate = self
         
         tableViewContas.delegate = tableViewContasDelegate
         tableViewContas.dataSource = tableViewContasDelegate
         tableViewContatos.delegate = tableViewContatosDelegate
         tableViewContatos.dataSource = tableViewContatosDelegate
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,11 +59,12 @@ class ContasViewController: UIViewController {
             contasPoupanca = contasRecuperadas
         }
         contatos = delegate.recuperarContatos(pessoa)
+        print(contatos)
         
-        nomesContatos = []
-        for contato in contatos {
-            nomesContatos.append(contato.nome)
-        }
+        //ordenar o array de contatos pelo nome
+        contatos.sort(by: ordenarPorNome)
+        
+        tableViewContatosDelegate.contatos = contatos
         
         contaPoupancaSaldos = []
         for conta in contasPoupanca {
@@ -77,13 +75,6 @@ class ContasViewController: UIViewController {
         for conta in contasCorrente {
             contaCorrenteSaldos.append("Conta Corrente: R$\(conta.saldo)")
         }
-        
-        for nome in nomesContatos {
-            names.append(Name.init(nameTitle: nome))
-        }
-        
-        let firstLetters = names.map{$0.titleFirstLatter}
-        var uniqueFirstLetters = Array(Set(firstLetters))
         
         tableViewContas.reloadData()
         tableViewContatos.reloadData()
@@ -122,7 +113,9 @@ class ContasViewController: UIViewController {
         }
     }
     
-    
+    func ordenarPorNome(this:Pessoa, that:Pessoa) -> Bool {
+        return this.nome < that.nome
+    }
 }
 
 extension ContasViewController: ContasTableViewDelegate {
@@ -135,9 +128,3 @@ extension ContasViewController: ContasTableViewDelegate {
     }
 }
 
-extension ContasViewController: ContatosTableViewDelegate {
-    func recuperarContatos() -> [String] {
-        print(nomesContatos)
-        return nomesContatos
-    }
-}

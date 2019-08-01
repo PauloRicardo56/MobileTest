@@ -9,33 +9,24 @@
 import UIKit
 
 class ContatosTableView: NSObject,UITableViewDelegate, UITableViewDataSource {
-    var delegate: ContatosTableViewDelegate!
-    var nomesContatos: [String] = []
+    var contatos: [Pessoa] = []
     var contatoSelecionado: Int = -1
     var viewDestino: ContasViewController!
-    var names: [Name] = []
-    var primeiraLetrasOrdenadas: [String] = []
-    var sections: [[Name]] = [[]]
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return primeiraLetrasOrdenadas[section]
+        viewDestino.contatoSelecionada = self
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //nomesContatos = delegate.recuperarContatos()
-        //return nomesContatos.count
-        return sections[section].count
+        return contatos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = nomesContatos[indexPath.row]
+        cell.textLabel?.text = contatos[indexPath.row].nome
     
         return cell
     }
